@@ -15,6 +15,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pink: {
+              50: '#ecebf4',
+              100: '#d9d7e9',
+              200: '#bfc0d1',
+              300: '#a3a0c5',
+              400: '#867eb4',
+              500: '#60519b',
+              600: '#4d417c',
+              700: '#3a315d',
+              800: '#26203e',
+              900: '#13101f',
+            },
+            purple: {
+              500: '#60519b',
+            },
+            gray: {
+              800: '#31323e',
+              900: '#1e202c',
+            }
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
@@ -22,11 +51,11 @@
   <style>
     html, body { 
         font-family: 'Inter', sans-serif; 
-        background-image: url('https://drive.google.com/thumbnail?id=13vLMiDFzhmderx31P6UvMuUT4NONCdps&sz=w1000');
+        background: linear-gradient(135deg, #1e202c 0%, #31323e 100%);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed; 
+        background-attachment: fixed;
         -webkit-tap-highlight-color: transparent; 
         overflow-x: hidden; 
         width: 100%; 
@@ -40,12 +69,11 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    .mockup-phone { width: 340px; height: 700px; border: 12px solid #1f2937; border-radius: 40px; overflow: hidden; background: #fff; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); margin: 0 auto; display: flex; flex-direction: column;}
-    .mockup-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 24px; background: #1f2937; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; z-index: 10; }
+    .mockup-phone { width: 340px; height: 700px; border: 12px solid #1e202c; border-radius: 40px; overflow: hidden; background: #fff; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); margin: 0 auto; display: flex; flex-direction: column;}
+    .mockup-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 24px; background: #1e202c; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; z-index: 10; }
     
-    .mockup-line-chat { width: 340px; height: 700px; border: 12px solid #1f2937; border-radius: 40px; overflow: hidden; background: #749cbd; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); margin: 0 auto; display: flex; flex-direction: column;}
-    .line-header { background: #262626; color: white; padding: 35px 15px 15px 15px; font-weight: bold; display: flex; align-items: center; gap: 10px; font-size: 15px;}
-    .line-carousel-container { display: flex; gap: 10px; overflow-x: auto; padding: 20px 15px; scroll-snap-type: x mandatory;}
+    .mockup-line-chat { width: 340px; height: 700px; border: 12px solid #1e202c; border-radius: 40px; overflow: hidden; background: #bfc0d1; position: relative; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); margin: 0 auto; display: flex; flex-direction: column;}
+    .line-header { background: #31323e; color: white; padding: 35px 15px 15px 15px; font-weight: bold; display: flex; align-items: center; gap: 10px; font-size: 15px;}    .line-carousel-container { display: flex; gap: 10px; overflow-x: auto; padding: 20px 15px; scroll-snap-type: x mandatory;}
     .line-card { min-width: 280px; max-width: 280px; background: white; border-radius: 16px; overflow: hidden; scroll-snap-align: center; box-shadow: 0 6px 16px rgba(0,0,0,0.15); display: flex; flex-direction: column;}
     
     .toast-enter-active, .toast-leave-active { transition: all 0.5s ease; }
@@ -813,8 +841,9 @@
         };
         
         const colorMatrix = ref([
+            ['#1e202c', '#31323e', '#60519b', '#9b94c3', '#bfc0d1'], 
             ['#fef2f2', '#fca5a5', '#ef4444', '#b91c1c', '#7f1d1d'], 
-            ['#fff7ed', '#fdba74', '#f97316', '#c2410c', '#7c2d12'], 
+            ['#fff7ed', '#fdba74', '#f97316', '#c2410c', '#7c2d12'],
             ['#fefce8', '#fde047', '#eab308', '#a16207', '#713f12'], 
             ['#f0fdf4', '#86efac', '#22c55e', '#15803d', '#14532d'], 
             ['#eff6ff', '#7dd3fc', '#0ea5e9', '#0369a1', '#0c4a6e'], 
