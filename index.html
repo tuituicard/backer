@@ -124,7 +124,7 @@
     </transition>
 
     <div v-if="currentView === 'login'" class="w-full max-w-md p-8 mt-10 sm:rounded-3xl shadow-2xl glass-panel">
-        <div class="flex justify-center mb-6"><img src="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&sz=w1000" alt="Logo" class="w-24 h-24 object-contain"></div>
+        <div class="flex justify-center mb-6"><img src="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&sz=w1000" alt="Logo" class="w-24 h-24 rounded-full object-cover shadow-sm"></div>
         <p class="text-center text-gray-700 font-bold mb-8 text-sm">PUSH推推 雲端名片後台</p>
         <form @submit.prevent="handleLogin" class="space-y-4">
             <input v-model="loginForm.email" type="email" required placeholder="Email" class="w-full p-4 rounded-xl border outline-none focus:ring-2 focus:ring-pink-400">
