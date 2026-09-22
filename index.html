@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>RubyBrandDesign 電子名片系統</title>
+  <title>Tuituicard 推推 雲端名片系統</title>
   
   <!-- 網頁分頁 Logo、分享縮圖與手機「加入主畫面」專用 Icon -->
   <link rel="icon" href="https://drive.google.com/uc?export=view&id=1BQfcrTIFiSpntNeQbsjr_T2oUYgGeGRx" type="image/jpeg">
@@ -97,7 +97,7 @@
 
     <div v-if="currentView === 'login'" class="w-full max-w-md p-8 mt-10 sm:rounded-3xl shadow-2xl glass-panel">
         <div class="flex justify-center mb-6"><img src="https://drive.google.com/thumbnail?id=1qS2jY3DkOoxbjd5hI6F7rl6pYbBRDbfs&sz=w1000" alt="Logo" class="w-24 h-24 object-contain"></div>
-        <p class="text-center text-gray-700 font-bold mb-8 text-sm">RubyBrandDesign電子名片系統後台</p>
+        <p class="text-center text-gray-700 font-bold mb-8 text-sm">Tuituicard雲端名片系統後台</p>
         <form @submit.prevent="handleLogin" class="space-y-4">
             <input v-model="loginForm.email" type="email" required placeholder="Email" class="w-full p-4 rounded-xl border outline-none focus:ring-2 focus:ring-pink-400">
             <div class="relative">
@@ -133,7 +133,7 @@
     <div v-if="currentView === 'dashboard' && currentUser" class="w-full sm:max-w-7xl min-h-screen flex flex-col sm:my-8 sm:rounded-3xl shadow-2xl bg-gray-50 relative pb-40">
       
       <div class="flex justify-between items-center p-4 sm:p-5 bg-white border-b sticky top-0 z-40 shadow-sm shrink-0 sm:rounded-t-3xl w-full min-w-0">
-        <h1 class="text-base sm:text-lg font-black truncate">RubyBrandDesign <span class="text-sm font-normal text-gray-500 hidden sm:inline-block">| {{ currentUser.name }}</span></h1>
+        <h1 class="text-base sm:text-lg font-black truncate">Tuituicard <span class="text-sm font-normal text-gray-500 hidden sm:inline-block">| {{ currentUser.name }}</span></h1>
         <div class="flex items-center gap-2 shrink-0">
           <button @click="shareProfilePage" :class="isProfileLinkCopied ? 'bg-green-500 hover:bg-green-600' : 'bg-[#06C755] hover:bg-[#05b34c]'" class="text-white font-bold text-xs sm:text-sm px-3 py-2 rounded-lg transition flex items-center gap-1.5 shadow-sm shrink-0">
             <i class="ph-bold" :class="isProfileLinkCopied ? 'ph-check-circle' : 'ph-user-circle'"></i> 
@@ -534,7 +534,7 @@
                 
                 <div class="sticky mockup-line-chat no-scrollbar transition-all shrink-0" :class="{'hidden lg:flex': mobileViewModeSlide === 'edit'}" style="top: max(96px, calc(50vh - 350px));">
                     <div class="mockup-notch"></div>
-                    <div class="line-header"><i class="ph ph-caret-left text-xl"></i> RubyBrandDesign</div>
+                    <div class="line-header"><i class="ph ph-caret-left text-xl"></i> Tuituicard</div>
                     <div class="flex-1 overflow-y-auto no-scrollbar flex flex-col">
                         <div class="mt-auto flex flex-col pb-6 w-full">
                             <div v-if="slides.length === 0" class="text-center text-white/50 text-sm mt-10">尚無輪播卡片，請從編輯區新增</div>
