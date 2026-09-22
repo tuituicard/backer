@@ -1436,7 +1436,7 @@
         const shareProfilePage = async () => {
             if (!currentUser.value) return;
             const customPath = profile.value.customUrl ? profile.value.customUrl : currentUser.value.memberId;
-            const shareUrl = 'https://rubybranddesign-cloud.github.io/e-line-card-share/' + customPath + '/';
+            const shareUrl = 'https://tuituicard.github.io/share/' + customPath + '/';
             const shareText = '哈囉！這是「' + (profile.value.name || currentUser.value.name) + '」的電子名片，請點擊連結查看：\n' + shareUrl;
             
             try {
