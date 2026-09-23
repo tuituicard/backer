@@ -856,7 +856,7 @@
             { val: 'url', label: '網頁連結' }, 
             { val: 'line', label: '+官方LINE' }, 
             { val: 'line_personal', label: '+個人LINE' }, 
-            { val: 'share', label: '轉發電子名片' },
+            { val: 'share', label: '轉發雲端名片' },
             { val: 'social', label: '社群媒體' }, 
             { val: 'tel', label: '電話撥打' }, 
             { val: 'email', label: '發送郵件' }
@@ -1466,7 +1466,7 @@
             if (!currentUser.value) return;
             const customPath = profile.value.customUrl ? profile.value.customUrl : currentUser.value.memberId;
             const shareUrl = 'https://tuituicard.github.io/share/' + customPath + '/';
-            const shareText = '哈囉！這是「' + (profile.value.name || currentUser.value.name) + '」的電子名片，請點擊連結查看：\n' + shareUrl;
+            const shareText = '哈囉！這是「' + (profile.value.name || currentUser.value.name) + '」的雲端名片，請點擊連結查看：\n' + shareUrl;
             
             try {
                 await navigator.clipboard.writeText(shareText);
