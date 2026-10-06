@@ -103,7 +103,13 @@
     .preview-body-container { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
+</head>
 <body class="text-gray-800">
+
+  <!-- 🚀 爬蟲誘餌 (Crawler Bait)：強制隱藏，專門餵給 LINE/FB 爬蟲抓取，阻斷抓到下方的 Vue {{ }} 代碼 -->
+  <div style="display:none; visibility:hidden; opacity:0; width:0; height:0; position:absolute; z-index:-9999; overflow:hidden;" aria-hidden="true">
+    登入 PUSH 推推雲端名片後台，零程式碼打造極致美學的個人數位品牌。輕鬆管理 LINE 輪播卡片、多連結整合與社群導流，讓您的每一次發送都成為精準獲客的商業武器。
+  </div>
 
   <div id="app" v-cloak class="min-h-screen w-full overflow-x-hidden flex flex-col items-center justify-start sm:p-4 relative">
     
