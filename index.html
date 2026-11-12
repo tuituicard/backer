@@ -2,27 +2,27 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <!-- 🚀 強制防快取標籤：告訴所有瀏覽器與爬蟲，此網頁絕不允許使用舊版暫存檔 -->
+  
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>PUSH推推 雲端名片系統｜專屬您的品牌賦能後台</title>
 
-  <!-- 🚀 商業策略描述標籤：強制定義社群預覽，防堵爬蟲抓取原始碼 -->
+  
   <meta name="description" content="登入 PUSH 推推雲端名片後台，零程式碼打造極致美學的個人數位品牌。輕鬆管理 LINE 輪播卡片、多連結整合與社群導流，讓您的每一次發送都成為精準獲客的商業武器。">
   <meta property="og:title" content="PUSH推推 雲端名片系統｜專屬您的品牌賦能後台">
   <meta property="og:description" content="登入 PUSH 推推雲端名片後台，零程式碼打造極致美學的個人數位品牌。輕鬆管理 LINE 輪播卡片、多連結整合與社群導流，讓您的每一次發送都成為精準獲客的商業武器。">
   <meta property="og:type" content="website">
   
-  <!-- 網頁分頁 Logo、分享縮圖與手機「加入主畫面」專用 Icon -->
-  <link rel="icon" href="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&sz=w128" type="image/jpeg">
-  <link rel="apple-touch-icon" href="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&sz=w128">
-  <meta property="og:image" content="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&sz=w1000">
+  
+  <link rel="icon" href="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&amp;sz=w128" type="image/jpeg">
+  <link rel="apple-touch-icon" href="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&amp;sz=w128">
+  <meta property="og:image" content="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&amp;sz=w1000">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;family=Noto&#43;Sans&#43;TC:wght@400;700;900&amp;family=Noto&#43;Serif&#43;TC:wght@400;700;900&amp;family=Zen&#43;Maru&#43;Gothic:wght@400;700;900&amp;display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -107,10 +107,9 @@
     .preview-body-container { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-</head>
 <body class="text-gray-800">
 
-  <!-- 🚀 爬蟲誘餌 (Crawler Bait)：強制隱藏，專門餵給 LINE/FB 爬蟲抓取，阻斷抓到下方的 Vue {{ }} 代碼 -->
+  
   <div style="display:none; visibility:hidden; opacity:0; width:0; height:0; position:absolute; z-index:-9999; overflow:hidden;" aria-hidden="true">
     登入 PUSH 推推雲端名片後台，零程式碼打造極致美學的個人數位品牌。輕鬆管理 LINE 輪播卡片、多連結整合與社群導流，讓您的每一次發送都成為精準獲客的商業武器。
   </div>
@@ -140,7 +139,7 @@
     </transition>
 
     <div v-if="currentView === 'login'" class="w-full max-w-md p-8 mt-10 sm:rounded-3xl shadow-2xl glass-panel">
-        <div class="flex justify-center mb-6"><img src="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&sz=w1000" alt="Logo" class="w-24 h-24 rounded-full object-cover shadow-sm"></div>
+        <div class="flex justify-center mb-6"><img src="https://drive.google.com/thumbnail?id=1fmN691zzrYYci4mSwUx74TbA0hrLJ8NX&amp;sz=w1000" alt="Logo" class="w-24 h-24 rounded-full object-cover shadow-sm"></div>
         <p class="text-center text-gray-700 font-bold mb-8 text-sm">PUSH推推 雲端名片後台</p>
         <form @submit.prevent="handleLogin" class="space-y-4">
             <input v-model="loginForm.email" type="email" required placeholder="Email" class="w-full p-4 rounded-xl border outline-none focus:ring-2 focus:ring-pink-400">
@@ -174,7 +173,7 @@
         <div class="mt-6 text-center text-sm"><a href="#" @click.prevent="currentView = 'login'" class="text-pink-600 font-bold hover:underline">返回登入</a></div>
     </div>
 
-    <div v-if="currentView === 'dashboard' && currentUser" class="w-full sm:max-w-7xl min-h-screen flex flex-col sm:my-8 sm:rounded-3xl shadow-2xl bg-gray-50 relative pb-40">
+    <div v-if="currentView === 'dashboard' &amp;&amp; currentUser" class="w-full sm:max-w-7xl min-h-screen flex flex-col sm:my-8 sm:rounded-3xl shadow-2xl bg-gray-50 relative pb-40">
       
       <div class="flex justify-between items-center p-4 sm:p-5 bg-white border-b sticky top-0 z-40 shadow-sm shrink-0 sm:rounded-t-3xl w-full min-w-0">
         <h1 class="text-base sm:text-lg font-black truncate">Tuituicard <span class="text-sm font-normal text-gray-500 hidden sm:inline-block">| {{ currentUser.name }}</span></h1>
@@ -195,7 +194,7 @@
 
         <div v-show="activeTab === 'profile'" class="w-full min-w-0">
             <div class="flex lg:hidden bg-gray-200 p-1 rounded-xl w-full max-w-[240px] mx-auto mb-6 relative shrink-0">
-                <div class="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-lg shadow transition-transform duration-300" :class="mobileViewModeProfile === 'preview' ? 'translate-x-0' : 'translate-x-[calc(100%+8px)]'"></div>
+                <div class="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-lg shadow transition-transform duration-300" :class="mobileViewModeProfile === 'preview' ? 'translate-x-0' : 'translate-x-[calc(100%&#43;8px)]'"></div>
                 <button @click="mobileViewModeProfile = 'preview'" class="flex-1 py-2 text-sm font-bold z-10 transition-colors" :class="mobileViewModeProfile === 'preview' ? 'text-gray-900' : 'text-gray-500'">預覽區</button>
                 <button @click="mobileViewModeProfile = 'edit'" class="flex-1 py-2 text-sm font-bold z-10 transition-colors" :class="mobileViewModeProfile === 'edit' ? 'text-gray-900' : 'text-gray-500'">編輯區</button>
             </div>
@@ -210,8 +209,8 @@
                         <div class="preview-body-container flex flex-col flex-1 transition-all duration-500 relative overflow-y-auto w-full no-scrollbar"
                              :style="{ backgroundColor: profile.bgColor }">
                             
-                            <div v-if="profile.bgImageUrl" class="relative w-full aspect-[4/5] shrink-0 bg-cover bg-center flex flex-col justify-end items-center pb-[2px]" :style="{ backgroundImage: 'url(' + profile.bgImageUrl + ')' }">
-                                <div class="absolute bottom-0 left-0 w-full h-1/2" :style="{ background: 'linear-gradient(to top, ' + profile.bgColor + ' 0%, transparent 100%)' }"></div>
+                            <div v-if="profile.bgImageUrl" class="relative w-full aspect-[4/5] shrink-0 bg-cover bg-center flex flex-col justify-end items-center pb-[2px]" :style="{ backgroundImage: 'url(' &#43; profile.bgImageUrl &#43; ')' }">
+                                <div class="absolute bottom-0 left-0 w-full h-1/2" :style="{ background: 'linear-gradient(to top, ' &#43; profile.bgColor &#43; ' 0%, transparent 100%)' }"></div>
                                 <div class="relative z-10 mb-3">
                                     <img :src="profile.avatarUrl || 'https://via.placeholder.com/150'" class="w-[110px] h-[110px] rounded-full object-cover border-2 border-white/50 shadow-md bg-gray-100">
                                 </div>
@@ -238,7 +237,7 @@
                                     <a v-if="profile.podcastUrl" :href="profile.podcastUrl" target="_blank" class="hover:opacity-80 transition flex items-center justify-center" :style="{ color: profile.socialIconColor }"><i class="ph-fill ph-microphone-stage text-[28px]"></i></a>
                                 </div>
 
-                                <div v-if="profile.ytUrl && getVideoData(profile.ytUrl)" class="relative w-full mt-4 mb-2 rounded-xl overflow-hidden shadow-lg aspect-video bg-black shrink-0 border border-white/20">
+                                <div v-if="profile.ytUrl &amp;&amp; getVideoData(profile.ytUrl)" class="relative w-full mt-4 mb-2 rounded-xl overflow-hidden shadow-lg aspect-video bg-black shrink-0 border border-white/20">
                                     <iframe v-if="getVideoData(profile.ytUrl).type !== 'html5'" :src="getVideoData(profile.ytUrl).embedUrl" class="absolute inset-0 w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     <video v-if="getVideoData(profile.ytUrl).type === 'html5'" :src="getVideoData(profile.ytUrl).embedUrl" class="absolute inset-0 w-full h-full" controls playsinline controlslist="nodownload"></video>
                                 </div>
@@ -257,23 +256,23 @@
                                              @touchend="handleTouchEnd($event, btn)">
                                             <a :href="buildFinalLink(btn.images[btn.currentImgIdx || 0]?.linkType || btn.type || 'url', btn.images[btn.currentImgIdx || 0]?.linkValue || btn.linkValue || '')" target="_blank" class="block w-full h-full relative cursor-pointer bg-gray-100">
                                                 <transition-group name="fade">
-                                                    <img v-for="(imgObj, i) in btn.images" :key="imgObj.url + i" v-show="(btn.currentImgIdx || 0) === i" :src="imgObj.url" class="absolute inset-0 w-full h-full object-cover">
+                                                    <img v-for="(imgObj, i) in btn.images" :key="imgObj.url &#43; i" v-show="(btn.currentImgIdx || 0) === i" :src="imgObj.url" class="absolute inset-0 w-full h-full object-cover">
                                                 </transition-group>
                                                 <div v-if="!btn.images || btn.images.length === 0" class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
                                                     <i class="ph-fill ph-image text-3xl mb-1"></i>
                                                     <span class="text-[10px] font-bold">請於編輯區上傳圖片</span>
                                                 </div>
                                             </a>
-                                            <div v-if="btn.images && btn.images.length > 1" class="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5 z-20 pointer-events-none">
-                                                <div v-for="(imgObj, i) in btn.images" :key="'dot'+i" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shadow-sm" :class="(btn.currentImgIdx || 0) === i ? 'bg-white scale-110' : 'bg-white/50'"></div>
+                                            <div v-if="btn.images &amp;&amp; btn.images.length &gt; 1" class="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5 z-20 pointer-events-none">
+                                                <div v-for="(imgObj, i) in btn.images" :key="'dot'&#43;i" class="w-1.5 h-1.5 rounded-full transition-all duration-300 shadow-sm" :class="(btn.currentImgIdx || 0) === i ? 'bg-white scale-110' : 'bg-white/50'"></div>
                                             </div>
-                                            <button v-if="btn.images && btn.images.length > 1" @click.stop.prevent="prevImg(btn)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 text-white rounded-full p-1.5 z-20 hover:bg-black/50 transition opacity-0 lg:group-hover:opacity-100"><i class="ph-bold ph-caret-left"></i></button>
-                                            <button v-if="btn.images && btn.images.length > 1" @click.stop.prevent="nextImg(btn)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 text-white rounded-full p-1.5 z-20 hover:bg-black/50 transition opacity-0 lg:group-hover:opacity-100"><i class="ph-bold ph-caret-right"></i></button>
+                                            <button v-if="btn.images &amp;&amp; btn.images.length &gt; 1" @click.stop.prevent="prevImg(btn)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 text-white rounded-full p-1.5 z-20 hover:bg-black/50 transition opacity-0 lg:group-hover:opacity-100"><i class="ph-bold ph-caret-left"></i></button>
+                                            <button v-if="btn.images &amp;&amp; btn.images.length &gt; 1" @click.stop.prevent="nextImg(btn)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 text-white rounded-full p-1.5 z-20 hover:bg-black/50 transition opacity-0 lg:group-hover:opacity-100"><i class="ph-bold ph-caret-right"></i></button>
                                         </div>
                                     </template>
                                 </div>
                                 
-                                <div v-if="slides && slides.length > 0" class="w-full mt-2 pb-10">
+                                <div v-if="slides &amp;&amp; slides.length &gt; 0" class="w-full mt-2 pb-10">
                                     <div class="flex items-center gap-3 mb-4 px-2">
                                         <div class="h-[1px] flex-1 bg-black/10" :style="{ backgroundColor: profile.textColor, opacity: 0.15 }"></div>
                                         <span class="text-[10px] font-black tracking-widest uppercase" :style="{ color: profile.textColor, opacity: 0.6 }">Highlights</span>
@@ -488,9 +487,9 @@
                                 <div v-if="btn.btnType === 'image'" class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm mt-1">
                                     <p class="text-[10px] text-pink-500 font-bold mb-3 flex items-start gap-1 leading-tight"><i class="ph-fill ph-warning-circle text-xs mt-0.5"></i> 建議上傳 4:5 比例的圖片檔（類似 IG 貼文）。支援多張滑動輪播，點擊下方圖片縮圖即可為每一張圖獨立設定專屬連結！</p>
                                     <div class="flex gap-2 overflow-x-auto no-scrollbar items-center pb-2">
-                                        <div v-for="(imgObj, imgIdx) in btn.images" :key="'img'+imgIdx" @click="btn.currentImgIdx = imgIdx" class="w-[70px] h-[87px] relative rounded-lg overflow-hidden shrink-0 border-2 cursor-pointer transition-all group" :class="btn.currentImgIdx === imgIdx ? 'border-pink-500 shadow-md scale-[1.02]' : 'border-gray-200 hover:border-pink-300'">
+                                        <div v-for="(imgObj, imgIdx) in btn.images" :key="'img'&#43;imgIdx" @click="btn.currentImgIdx = imgIdx" class="w-[70px] h-[87px] relative rounded-lg overflow-hidden shrink-0 border-2 cursor-pointer transition-all group" :class="btn.currentImgIdx === imgIdx ? 'border-pink-500 shadow-md scale-[1.02]' : 'border-gray-200 hover:border-pink-300'">
                                             <img :src="imgObj.url" class="w-full h-full object-cover">
-                                            <button @click.stop="btn.images.splice(imgIdx, 1); if(btn.currentImgIdx >= btn.images.length) btn.currentImgIdx = Math.max(0, btn.images.length - 1);" class="absolute top-1 right-1 bg-white/90 text-red-500 rounded-full w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition shadow-sm"><i class="ph-bold ph-x text-[10px]"></i></button>
+                                            <button @click.stop="btn.images.splice(imgIdx, 1); if(btn.currentImgIdx &gt;= btn.images.length) btn.currentImgIdx = Math.max(0, btn.images.length - 1);" class="absolute top-1 right-1 bg-white/90 text-red-500 rounded-full w-5 h-5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition shadow-sm"><i class="ph-bold ph-x text-[10px]"></i></button>
                                             <div v-if="imgObj.linkValue" class="absolute bottom-1 right-1 bg-green-500 text-white rounded-full w-4 h-4 flex items-center justify-center shadow-sm"><i class="ph-bold ph-link text-[8px]"></i></div>
                                         </div>
                                         <button @click.stop="openMediaLibrary('btnImage', index)" class="w-[70px] h-[87px] border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 transition shrink-0 bg-gray-50">
@@ -499,7 +498,7 @@
                                         </button>
                                     </div>
                                     
-                                    <div v-if="btn.images && btn.images.length > 0" class="mt-2 pt-3 border-t border-gray-100">
+                                    <div v-if="btn.images &amp;&amp; btn.images.length &gt; 0" class="mt-2 pt-3 border-t border-gray-100">
                                         <div class="flex justify-between items-center mb-2">
                                             <label class="text-[11px] font-bold text-gray-700 bg-gray-100 px-2 py-1 rounded">第 {{ (btn.currentImgIdx || 0) + 1 }} 張圖片專屬連結</label>
                                         </div>
@@ -526,22 +525,22 @@
                                             <i class="ph-bold ph-caret-down absolute right-1.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-[10px]"></i>
                                         </div>
                                         <div class="relative">
-                                            <button @click.stop="togglePalette('btnText_' + btn.id)" class="text-[10px] font-bold bg-white border px-2 py-1.5 rounded-lg flex items-center gap-1 hover:bg-gray-100 transition" title="按鈕文字色">
+                                            <button @click.stop="togglePalette('btnText_' &#43; btn.id)" class="text-[10px] font-bold bg-white border px-2 py-1.5 rounded-lg flex items-center gap-1 hover:bg-gray-100 transition" title="按鈕文字色">
                                                 <span class="w-3 h-3 border border-gray-300 rounded-sm" :style="{backgroundColor: btn.textColor || '#000000'}"></span> 字色
                                             </button>
                                             <transition name="slide-down">
-                                                <div v-if="activePaletteId === 'btnText_' + btn.id" @click.stop class="absolute right-0 bottom-8 bg-white p-2 rounded-xl border shadow-lg z-50">
+                                                <div v-if="activePaletteId === 'btnText_' &#43; btn.id" @click.stop class="absolute right-0 bottom-8 bg-white p-2 rounded-xl border shadow-lg z-50">
                                                     <div class="relative w-5 h-5 rounded-full cursor-pointer icolor-wheel border mb-2"><input type="color" v-model="btn.textColor" class="absolute inset-0 w-full h-full opacity-0"></div>
                                                     <div class="color-grid-matrix gap-1"><div v-for="(row, rIdx) in colorMatrix" :key="rIdx" class="flex gap-1"><button v-for="c in row" :key="c" @click="btn.textColor = c" class="w-4 h-4 rounded border" :style="{ backgroundColor: c }"></button></div></div>
                                                 </div>
                                             </transition>
                                         </div>
                                         <div class="relative">
-                                            <button @click.stop="togglePalette('btnBg_' + btn.id)" class="text-[10px] font-bold bg-white border px-2 py-1.5 rounded-lg flex items-center gap-1 hover:bg-gray-100 transition" title="按鈕背景色">
+                                            <button @click.stop="togglePalette('btnBg_' &#43; btn.id)" class="text-[10px] font-bold bg-white border px-2 py-1.5 rounded-lg flex items-center gap-1 hover:bg-gray-100 transition" title="按鈕背景色">
                                                 <span class="w-3 h-3 border border-gray-300 rounded-sm" :style="{backgroundColor: btn.color || '#d4af37'}"></span> 底色
                                             </button>
                                             <transition name="slide-down">
-                                                <div v-if="activePaletteId === 'btnBg_' + btn.id" @click.stop class="absolute right-0 bottom-8 bg-white p-2 rounded-xl border shadow-lg z-50">
+                                                <div v-if="activePaletteId === 'btnBg_' &#43; btn.id" @click.stop class="absolute right-0 bottom-8 bg-white p-2 rounded-xl border shadow-lg z-50">
                                                     <div class="relative w-5 h-5 rounded-full cursor-pointer icolor-wheel border mb-2"><input type="color" v-model="btn.color" class="absolute inset-0 w-full h-full opacity-0"></div>
                                                     <div class="color-grid-matrix gap-1"><div v-for="(row, rIdx) in colorMatrix" :key="rIdx" class="flex gap-1"><button v-for="c in row" :key="c" @click="btn.color = c" class="w-4 h-4 rounded border" :style="{ backgroundColor: c }"></button></div></div>
                                                 </div>
@@ -569,7 +568,7 @@
 
         <div v-show="activeTab === 'line'" class="w-full min-w-0">
             <div class="flex lg:hidden bg-gray-200 p-1 rounded-xl w-full max-w-[240px] mx-auto mb-6 relative shrink-0">
-                <div class="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-lg shadow transition-transform duration-300" :class="mobileViewModeSlide === 'preview' ? 'translate-x-0' : 'translate-x-[calc(100%+8px)]'"></div>
+                <div class="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-white rounded-lg shadow transition-transform duration-300" :class="mobileViewModeSlide === 'preview' ? 'translate-x-0' : 'translate-x-[calc(100%&#43;8px)]'"></div>
                 <button @click="mobileViewModeSlide = 'preview'" class="flex-1 py-2 text-sm font-bold z-10 transition-colors" :class="mobileViewModeSlide === 'preview' ? 'text-gray-900' : 'text-gray-500'">預覽區</button>
                 <button @click="mobileViewModeSlide = 'edit'" class="flex-1 py-2 text-sm font-bold z-10 transition-colors" :class="mobileViewModeSlide === 'edit' ? 'text-gray-900' : 'text-gray-500'">編輯區</button>
             </div>
@@ -615,7 +614,7 @@
                             <div>
                                 <label class="text-[11px] font-bold text-gray-500 mb-1 block">2. 您的專屬 Webhook 網址 (請複製並貼到 LINE 後台)</label>
                                 <div class="relative">
-                                    <input :value="GAS_API_URL + '?memberId=' + (currentUser ? currentUser.memberId : '')" readonly class="w-full text-[10px] p-3 rounded-xl border border-gray-200 bg-gray-100 text-gray-500 font-mono pr-20" id="webhook-url">
+                                    <input :value="GAS_API_URL &#43; '?memberId=' &#43; (currentUser ? currentUser.memberId : '')" readonly class="w-full text-[10px] p-3 rounded-xl border border-gray-200 bg-gray-100 text-gray-500 font-mono pr-20" id="webhook-url">
                                     <button @click="copyWebhookUrl" class="absolute right-1 top-1 bottom-1 px-3 bg-green-500 hover:bg-green-600 text-white text-[10px] font-bold rounded-lg transition">一鍵複製</button>
                                 </div>
                                 <p class="text-[10px] text-gray-400 mt-1">*請將此網址貼至 LINE Official Account Manager 的 Webhook 欄位，並確保已開啟 Webhook 功能。</p>
@@ -641,7 +640,7 @@
                                         <button @click="moveItem(slides, index, -1)" :disabled="index === 0" class="p-1 bg-white border border-gray-200 rounded text-gray-500 disabled:opacity-30 hover:bg-gray-100"><i class="ph ph-arrow-up"></i></button>
                                         <button @click="moveItem(slides, index, 1)" :disabled="index === slides.length - 1" class="p-1 bg-white border border-gray-200 rounded text-gray-500 disabled:opacity-30 hover:bg-gray-100"><i class="ph-arrow-down"></i></button>
                                         <button @click="insertNewSlide(index)" title="在下方新增空白卡片" class="p-1 bg-blue-50 border border-blue-100 text-blue-500 rounded hover:bg-blue-100 transition"><i class="ph-bold ph-plus"></i></button>
-                                        <button @click="requestDelete('slide', slide.id, index, '第 ' + (index + 1) + ' 張輪播圖')" class="p-1 bg-red-50 border border-red-100 text-red-500 rounded hover:bg-red-100"><i class="ph ph-trash"></i></button>
+                                        <button @click="requestDelete('slide', slide.id, index, '第 ' &#43; (index &#43; 1) &#43; ' 張輪播圖')" class="p-1 bg-red-50 border border-red-100 text-red-500 rounded hover:bg-red-100"><i class="ph ph-trash"></i></button>
                                     </div>
                                 </div>
 
@@ -660,12 +659,12 @@
                                         <div class="w-full mt-1 min-w-0">
                                             <div class="flex items-center gap-2 min-w-0">
                                                 <label class="text-xs font-bold text-gray-500 w-16 shrink-0">按鈕字色</label>
-                                                <button @click.stop="togglePalette('slideTextColor_' + slide.id)" class="flex-1 min-w-0 text-sm font-bold p-2 rounded-xl border bg-white shadow-inner flex items-center justify-between text-gray-600 hover:bg-gray-50 transition">
+                                                <button @click.stop="togglePalette('slideTextColor_' &#43; slide.id)" class="flex-1 min-w-0 text-sm font-bold p-2 rounded-xl border bg-white shadow-inner flex items-center justify-between text-gray-600 hover:bg-gray-50 transition">
                                                     <div class="flex items-center gap-2 min-w-0"><span class="w-5 h-5 rounded-full border border-gray-200 shadow-sm shrink-0" :style="{backgroundColor: slide.buttonTextColor || '#ffffff'}"></span><span class="uppercase text-[13px] truncate">{{ slide.buttonTextColor || '#FFFFFF' }}</span></div><i class="ph-bold ph-palette text-gray-400 mr-1 shrink-0"></i>
                                                 </button>
                                             </div>
                                             <transition name="slide-down">
-                                                <div v-if="activePaletteId === 'slideTextColor_' + slide.id" @click.stop class="mt-2 ml-16 bg-white p-3 rounded-xl border border-gray-200 shadow-sm relative z-50">
+                                                <div v-if="activePaletteId === 'slideTextColor_' &#43; slide.id" @click.stop class="mt-2 ml-16 bg-white p-3 rounded-xl border border-gray-200 shadow-sm relative z-50">
                                                     <div class="flex justify-between items-center mb-2"><span class="text-[10px] font-bold text-gray-400">漸層色系與滴管</span><div class="relative w-5 h-5 rounded-full cursor-pointer icolor-wheel border border-gray-200"><input type="color" v-model="slide.buttonTextColor" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"></div></div>
                                                     <div class="color-grid-matrix"><div v-for="(row, rIdx) in colorMatrix" :key="rIdx" class="color-row"><button v-for="c in row" :key="c" @click="slide.buttonTextColor = c" class="color-swatch" :class="{'ring-1 ring-gray-800': slide.buttonTextColor === c}" :style="{ backgroundColor: c }"></button></div></div>
                                                 </div>
@@ -678,13 +677,13 @@
                                     <div class="flex justify-between items-center mb-3">
                                         <span class="text-xs font-bold text-gray-500 truncate mr-2">卡片設定與按鈕 ({{ slide.buttons.length }}/5)</span>
                                         <div class="flex gap-2 shrink-0">
-                                            <button @click.stop="togglePalette('slideBg_' + slide.id)" class="text-[10px] bg-white border px-2 py-1.5 rounded-lg font-bold text-gray-600 flex items-center gap-1 shadow-sm"><span class="w-2 h-2 rounded-full border shrink-0" :style="{backgroundColor: slide.bgColor || '#ffffff'}"></span> 卡片底色</button>
-                                            <button v-if="slide.buttons.length < 5" @click="slide.buttons.push({type: 'url', title:'', linkValue:'', color: '#6C0B22'})" class="text-[10px] bg-gray-900 text-white px-3 py-1.5 rounded-lg font-bold shadow-sm">新增按鈕</button>
+                                            <button @click.stop="togglePalette('slideBg_' &#43; slide.id)" class="text-[10px] bg-white border px-2 py-1.5 rounded-lg font-bold text-gray-600 flex items-center gap-1 shadow-sm"><span class="w-2 h-2 rounded-full border shrink-0" :style="{backgroundColor: slide.bgColor || '#ffffff'}"></span> 卡片底色</button>
+                                            <button v-if="slide.buttons.length &lt; 5" @click="slide.buttons.push({type: 'url', title:'', linkValue:'', color: '#6C0B22'})" class="text-[10px] bg-gray-900 text-white px-3 py-1.5 rounded-lg font-bold shadow-sm">新增按鈕</button>
                                         </div>
                                     </div>
 
                                     <transition name="slide-down">
-                                        <div v-if="activePaletteId === 'slideBg_' + slide.id" @click.stop class="mb-3 bg-white p-3 rounded-xl border border-gray-200 shadow-sm relative z-50">
+                                        <div v-if="activePaletteId === 'slideBg_' &#43; slide.id" @click.stop class="mb-3 bg-white p-3 rounded-xl border border-gray-200 shadow-sm relative z-50">
                                             <div class="flex justify-between items-center mb-2"><span class="text-[10px] font-bold text-gray-400">自訂卡片背景色</span><div class="relative w-5 h-5 rounded-full cursor-pointer icolor-wheel border border-gray-200"><input type="color" v-model="slide.bgColor" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"></div></div>
                                             <div class="color-grid-matrix"><div v-for="(row, rIdx) in colorMatrix" :key="rIdx" class="color-row"><button v-for="c in row" :key="c" @click="slide.bgColor = c" class="color-swatch" :class="{'ring-1 ring-gray-800': slide.bgColor === c}" :style="{ backgroundColor: c }"></button></div></div>
                                         </div>
@@ -711,10 +710,10 @@
                                             <div class="flex gap-2 relative mt-1 min-w-0">
                                                 <input v-model="sBtn.title" class="w-1/3 min-w-0 text-xs p-2.5 rounded-lg border bg-gray-50 outline-none focus:ring-1 focus:ring-pink-400" placeholder="按鈕名">
                                                 <input v-model="sBtn.linkValue" class="flex-1 min-w-0 text-xs p-2.5 rounded-lg border bg-gray-50 outline-none focus:ring-1 focus:ring-pink-400" :placeholder="getPlaceholder(sBtn.type)">
-                                                <button @click.stop="togglePalette('sBtn_' + slide.id + '_' + bIdx)" class="w-9 shrink-0 flex items-center justify-center bg-gray-100 border border-gray-200 rounded-lg hover:bg-gray-200 transition"><span class="w-4 h-4 rounded-full border border-gray-300" :style="{backgroundColor: sBtn.color || '#6C0B22'}"></span></button>
+                                                <button @click.stop="togglePalette('sBtn_' &#43; slide.id &#43; '_' &#43; bIdx)" class="w-9 shrink-0 flex items-center justify-center bg-gray-100 border border-gray-200 rounded-lg hover:bg-gray-200 transition"><span class="w-4 h-4 rounded-full border border-gray-300" :style="{backgroundColor: sBtn.color || '#6C0B22'}"></span></button>
                                             </div>
                                             <transition name="slide-down">
-                                                <div v-if="activePaletteId === 'sBtn_' + slide.id + '_' + bIdx" @click.stop class="mt-2 bg-white p-3 rounded-xl border border-gray-200 shadow-sm relative z-50">
+                                                <div v-if="activePaletteId === 'sBtn_' &#43; slide.id &#43; '_' &#43; bIdx" @click.stop class="mt-2 bg-white p-3 rounded-xl border border-gray-200 shadow-sm relative z-50">
                                                     <div class="flex justify-between items-center mb-2"><span class="text-[10px] font-bold text-gray-400">按鈕底色與滴管</span><div class="relative w-5 h-5 rounded-full cursor-pointer icolor-wheel border border-gray-200"><input type="color" v-model="sBtn.color" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"></div></div>
                                                     <div class="color-grid-matrix"><div v-for="(row, rIdx) in colorMatrix" :key="rIdx" class="color-row"><button v-for="c in row" :key="c" @click="sBtn.color = c" class="color-swatch w-5 h-5" :class="{'ring-1 ring-gray-800': sBtn.color === c}" :style="{ backgroundColor: c }"></button></div></div>
                                                 </div>
@@ -803,9 +802,9 @@
         const isProfileLinkCopied = ref(false);
         const isPublishingWeb = ref(false);
 
-        // ==========================================
-        // 新增防呆安全鎖檢查函式
-        // ==========================================
+        
+        
+        
         const checkUnfinishedUploads = () => {
             const pBase64 = (profile.value.avatarUrl && profile.value.avatarUrl.includes('data:image')) || 
                             (profile.value.bgImageUrl && profile.value.bgImageUrl.includes('data:image'));
@@ -832,17 +831,44 @@
             confirmModal.value.show = false; 
         };
 
+        const isGasEnv = () => typeof google !== 'undefined' && google.script && google.script.run;
+
+        const safeStorage = {
+            get: (key) => { try { return localStorage.getItem(key); } catch (e) { return null; } },
+            set: (key, val) => { try { localStorage.setItem(key, val); } catch (e) {} },
+            remove: (key) => { try { localStorage.removeItem(key); } catch (e) {} }
+        };
+
         const apiCall = async (payload) => {
             try {
-                const response = await fetch(GAS_API_URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "text/plain;charset=utf-8",
-                    },
-                    body: JSON.stringify(payload)
-                });
-                const data = await response.json();
-                if (data.status === 'expired') {
+                let data;
+                if (isGasEnv()) {
+                    
+                    data = await new Promise((resolve, reject) => {
+                        google.script.run
+                            .withSuccessHandler((resStr) => {
+                                try {
+                                    resolve(typeof resStr === 'string' ? JSON.parse(resStr) : resStr);
+                                } catch (parseErr) {
+                                    reject(parseErr);
+                                }
+                            })
+                            .withFailureHandler((err) => reject(err))
+                            .processFrontendRequest(JSON.stringify(payload));
+                    });
+                } else {
+                    
+                    const response = await fetch(GAS_API_URL, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "text/plain;charset=utf-8",
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    data = await response.json();
+                }
+
+                if (data && data.status === 'expired') {
                     showToast(data.message || '此帳號已失效，系統即將登出', 'error');
                     setTimeout(() => { logout(); }, 2000);
                     throw new Error('帳號已失效');
@@ -1050,7 +1076,7 @@
         };
 
         onMounted(() => {
-            const savedUser = localStorage.getItem('ruby_user');
+            const savedUser = safeStorage.get('ruby_user');
             if (savedUser) { 
                 currentUser.value = JSON.parse(savedUser); 
                 currentView.value = 'dashboard'; 
@@ -1078,7 +1104,7 @@
                 const res = await apiCall({ action: 'login', ...loginForm.value });
                 if(res.status === 'success') { 
                     currentUser.value = res.data; 
-                    localStorage.setItem('ruby_user', JSON.stringify(res.data)); 
+                    safeStorage.set('ruby_user', JSON.stringify(res.data)); 
                     currentView.value = 'dashboard'; 
                     showToast('登入成功'); 
                     loadDashboardData(); 
@@ -1118,7 +1144,7 @@
         };
 
         const logout = () => { 
-            localStorage.removeItem('ruby_user'); 
+            safeStorage.remove('ruby_user'); 
             currentView.value = 'login'; 
             currentUser.value = null; 
             showToast('已安全登出'); 
@@ -1179,9 +1205,9 @@
             }
         };
 
-        // ==========================================
-        // 儲存個人頁資料 (包含安全鎖)
-        // ==========================================
+        
+        
+        
         const saveAllData = async () => {
             if (checkUnfinishedUploads()) {
                 showToast('圖片正在上傳雲端中，請稍候幾秒再儲存！(若卡住請刪除重傳)', 'error');
@@ -1211,9 +1237,9 @@
             } finally { if(isSaving.value) isSaving.value = false; }
         };
         
-        // ==========================================
-        // 儲存輪播卡片資料 (包含安全鎖)
-        // ==========================================
+        
+        
+        
         const saveSlidesData = async () => {
             if (checkUnfinishedUploads()) {
                 showToast('圖片正在上傳雲端中，請稍候幾秒再儲存！(若卡住請刪除重傳)', 'error');
@@ -1234,9 +1260,9 @@
             } finally { isSaving.value = false; }
         };
 
-        // ==========================================
-        // 發佈公開專屬網頁 (包含安全鎖)
-        // ==========================================
+        
+        
+        
         const publishToWeb = async () => {
             if (checkUnfinishedUploads()) {
                 showToast('圖片正在上傳雲端中，請稍候幾秒再發佈！(若卡住請刪除重傳)', 'error');
