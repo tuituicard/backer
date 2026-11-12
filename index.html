@@ -206,7 +206,82 @@
                     <div class="mockup-phone no-scrollbar shrink-0 w-full" style="margin: 0;">
                         <div class="mockup-notch"></div>
                         
-                        <div class="preview-body-container flex flex-col flex-1 transition-all duration-500 relative overflow-y-auto w-full no-scrollbar"
+                        
+                        <div v-if="profile.minimalConfig &amp;&amp; profile.minimalConfig.templateType === 'minimal'" class="preview-body-container flex flex-col flex-1 transition-all duration-500 relative overflow-y-auto w-full no-scrollbar px-5 pt-10 pb-10 items-center" :style="{ backgroundColor: profile.bgColor, color: profile.textColor }">
+                            <img :src="profile.avatarUrl || 'https://via.placeholder.com/150'" class="w-[86px] h-[86px] rounded-full object-cover border-[3px] border-white shadow-md mb-3 shrink-0">
+                            <div class="text-xl font-black text-center tracking-widest" :style="{ color: profile.textColor, fontFamily: getFontFamily(profile.titleFont) }">{{ profile.name || '顯示名稱' }}</div>
+                            <div v-if="profile.minimalConfig.subtitle" class="text-xs text-center mt-1 opacity-85" :style="{ color: profile.textColor, fontFamily: getFontFamily(profile.bioFont) }">{{ profile.minimalConfig.subtitle }}</div>
+
+                            <div v-if="minimalTagList.length &gt; 0" class="w-full mt-5">
+                                <div class="flex items-center gap-2 mb-2.5"><div class="h-[1px] flex-1 bg-current opacity-20"></div><span class="text-[10px] font-bold tracking-widest opacity-85" :style="{ color: profile.textColor }">服務項目</span><div class="h-[1px] flex-1 bg-current opacity-20"></div></div>
+                                <div class="flex flex-wrap justify-center gap-1.5">
+                                    <span v-for="(tag, idx) in minimalTagList" :key="idx" class="px-2.5 py-1 rounded-full text-[10px] font-medium bg-white/85 text-gray-800 shadow-sm">{{ tag }}</span>
+                                </div>
+                            </div>
+
+                            <div v-if="profile.minimalConfig.contactPhone || profile.minimalConfig.contactEmail || profile.minimalConfig.contactLine" class="w-full bg-white rounded-2xl p-3.5 shadow-sm mt-5 text-gray-800 shrink-0">
+                                <div class="grid grid-cols-3 gap-2 mb-2.5">
+                                    <a v-if="profile.minimalConfig.contactPhone" :href="'tel:' &#43; profile.minimalConfig.contactPhone" class="bg-gray-100 hover:bg-gray-200 transition rounded-xl py-2 flex flex-col items-center text-[10px] font-bold text-gray-700"><i class="ph ph-phone text-base mb-0.5"></i>撥電話</a>
+                                    <div v-else class="bg-gray-50 rounded-xl py-2 flex flex-col items-center text-[10px] font-bold text-gray-300"><i class="ph ph-phone text-base mb-0.5"></i>撥電話</div>
+                                    <a v-if="profile.minimalConfig.contactLine" :href="buildLineAddUrl(profile.minimalConfig.contactLine)" target="_blank" class="bg-gray-100 hover:bg-gray-200 transition rounded-xl py-2 flex flex-col items-center text-[10px] font-bold text-gray-700"><i class="ph ph-chat-circle text-base mb-0.5"></i>加 LINE</a>
+                                    <div v-else class="bg-gray-50 rounded-xl py-2 flex flex-col items-center text-[10px] font-bold text-gray-300"><i class="ph ph-chat-circle text-base mb-0.5"></i>加 LINE</div>
+                                    <a v-if="profile.minimalConfig.contactEmail" :href="'mailto:' &#43; profile.minimalConfig.contactEmail" class="bg-gray-100 hover:bg-gray-200 transition rounded-xl py-2 flex flex-col items-center text-[10px] font-bold text-gray-700"><i class="ph ph-envelope-simple text-base mb-0.5"></i>寄 Email</a>
+                                    <div v-else class="bg-gray-50 rounded-xl py-2 flex flex-col items-center text-[10px] font-bold text-gray-300"><i class="ph ph-envelope-simple text-base mb-0.5"></i>寄 Email</div>
+                                </div>
+                                <button @click="downloadPreviewVCard" class="w-full py-2 rounded-lg text-white font-bold text-[11px] flex items-center justify-center gap-1 hover:opacity-90 transition cursor-pointer" :style="{ backgroundColor: profile.socialIconColor || '#7A4E48' }"><i class="ph ph-user-plus"></i> 存到手機聯絡人</button>
+                                <div class="mt-3 pt-2 border-t border-gray-100 space-y-1 text-[10px]">
+                                    <div v-if="profile.minimalConfig.contactPhone" class="flex"><span class="w-11 font-bold shrink-0" :style="{ color: profile.socialIconColor || '#7A4E48' }">手機</span><span class="truncate">{{ profile.minimalConfig.contactPhone }}</span></div>
+                                    <div v-if="profile.minimalConfig.contactEmail" class="flex"><span class="w-11 font-bold shrink-0" :style="{ color: profile.socialIconColor || '#7A4E48' }">Email</span><span class="truncate">{{ profile.minimalConfig.contactEmail }}</span></div>
+                                    <div v-if="profile.minimalConfig.contactLine" class="flex"><span class="w-11 font-bold shrink-0" :style="{ color: profile.socialIconColor || '#7A4E48' }">LINE</span><span class="truncate">{{ profile.minimalConfig.contactLine }}</span></div>
+                                </div>
+                            </div>
+
+                            <div v-if="profile.minimalConfig.aboutUs" class="w-full mt-5">
+                                <div class="flex items-center gap-2 mb-2"><span class="text-[10px] font-bold tracking-widest shrink-0 opacity-85" :style="{ color: profile.textColor }">關於我們</span><div class="h-[1px] flex-1 bg-current opacity-20"></div></div>
+                                <p class="text-[11px] leading-relaxed whitespace-pre-wrap opacity-90" :style="{ color: profile.textColor, fontFamily: getFontFamily(profile.bioFont) }">{{ profile.minimalConfig.aboutUs }}</p>
+                            </div>
+
+                            <div v-if="minimalServiceRows.length &gt; 0" class="w-full mt-5">
+                                <div class="flex items-center gap-2 mb-2"><span class="text-[10px] font-bold tracking-widest shrink-0 opacity-85" :style="{ color: profile.textColor }">可以找我的事</span><div class="h-[1px] flex-1 bg-current opacity-20"></div></div>
+                                <div class="space-y-1.5">
+                                    <template v-for="(item, idx) in minimalServiceRows" :key="idx">
+                                        <a v-if="item.url" :href="buildServiceUrl(item.url)" target="_blank" class="w-full bg-white rounded-full px-3.5 py-2 flex justify-between items-center shadow-sm text-[11px] font-bold hover:opacity-90 transition cursor-pointer" style="text-decoration: none;">
+                                            <span :style="{ color: profile.socialIconColor || '#7A4E48' }">{{ item.name }}</span>
+                                            <span :style="{ color: profile.socialIconColor || '#7A4E48' }">{{ item.price }}</span>
+                                        </a>
+                                        <div v-else class="w-full bg-white rounded-full px-3.5 py-2 flex justify-between items-center shadow-sm text-[11px] font-bold">
+                                            <span :style="{ color: profile.socialIconColor || '#7A4E48' }">{{ item.name }}</span>
+                                            <span :style="{ color: profile.socialIconColor || '#7A4E48' }">{{ item.price }}</span>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <div v-if="buttons.length &gt; 0" class="w-full mt-5">
+                                <div class="flex items-center gap-2 mb-2"><span class="text-[10px] font-bold tracking-widest shrink-0 opacity-85" :style="{ color: profile.textColor }">LINK 連結</span><div class="h-[1px] flex-1 bg-current opacity-20"></div></div>
+                                <div class="space-y-2">
+                                    <template v-for="btn in buttons" :key="btn.id">
+                                        <a v-if="btn.btnType !== 'image'" :href="buildFinalLink(btn.type, btn.linkValue)" target="_blank" class="block w-full py-2.5 rounded-lg text-center text-xs font-bold shadow-sm hover:opacity-90 transition" :style="{ backgroundColor: btn.color || profile.socialIconColor || '#7A4E48', color: btn.textColor || '#ffffff', fontFamily: getFontFamily(btn.font), textDecoration: 'none' }">{{ btn.title || '按鈕文字' }}</a>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <div v-if="profile.minimalConfig.companyName || profile.minimalConfig.companyAddress || profile.minimalConfig.companyPhone" class="w-full mt-5">
+                                <div class="flex items-center gap-2 mb-2"><span class="text-[10px] font-bold tracking-widest shrink-0 opacity-85" :style="{ color: profile.textColor }">公司資訊</span><div class="h-[1px] flex-1 bg-current opacity-20"></div></div>
+                                <div class="w-full bg-white rounded-2xl p-3.5 shadow-sm text-gray-800">
+                                    <div v-if="profile.minimalConfig.companyName" class="text-xs font-black mb-0.5">{{ profile.minimalConfig.companyName }}</div>
+                                    <div v-if="profile.minimalConfig.companyAddress" class="text-[10px] text-gray-500 mb-2.5">{{ profile.minimalConfig.companyAddress }}</div>
+                                    <div class="grid grid-cols-2 gap-2 text-[10px] font-bold text-white text-center">
+                                        <a v-if="profile.minimalConfig.companyAddress" :href="'https://www.google.com/maps/search/?api=1&amp;query=' &#43; encodeURIComponent(profile.minimalConfig.companyAddress)" target="_blank" class="py-1.5 rounded-lg flex items-center justify-center gap-1 hover:opacity-90 transition text-white" :style="{ backgroundColor: profile.socialIconColor || '#7A4E48', textDecoration: 'none' }"><i class="ph ph-navigation-arrow"></i> 導航</a>
+                                        <a v-if="profile.minimalConfig.companyPhone" :href="'tel:' &#43; profile.minimalConfig.companyPhone" class="py-1.5 rounded-lg flex items-center justify-center gap-1 hover:opacity-90 transition text-white" :style="{ backgroundColor: profile.socialIconColor || '#7A4E48', textDecoration: 'none' }"><i class="ph ph-phone"></i> 公司電話</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <button @click="shareMinimalPreview" type="button" class="mt-5 inline-block text-[10px] font-bold underline underline-offset-2 opacity-85 hover:opacity-70 transition bg-transparent border-0 cursor-pointer" :style="{ color: profile.textColor }">分享這張名片</button>
+                        </div>
+
+                        
+                        <div v-else class="preview-body-container flex flex-col flex-1 transition-all duration-500 relative overflow-y-auto w-full no-scrollbar"
                              :style="{ backgroundColor: profile.bgColor }">
                             
                             <div v-if="profile.bgImageUrl" class="relative w-full aspect-[4/5] shrink-0 bg-cover bg-center flex flex-col justify-end items-center pb-[2px]" :style="{ backgroundImage: 'url(' &#43; profile.bgImageUrl &#43; ')' }">
@@ -311,12 +386,28 @@
                 </div>
 
                 <div class="w-full max-w-full lg:w-[550px] min-w-0" :class="{'hidden lg:block': mobileViewModeProfile === 'preview'}">
+
+                    
+                    <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 mb-5 w-full min-w-0">
+                        <h3 class="font-black text-base mb-3 text-gray-800 border-b pb-2 flex items-center gap-2"><i class="ph-fill ph-layout text-pink-500"></i> 公開個人頁版型選擇</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button @click="profile.minimalConfig.templateType = 'classic'" class="p-3 rounded-2xl border-2 text-left transition" :class="profile.minimalConfig.templateType !== 'minimal' ? 'border-pink-500 bg-pink-50/50' : 'border-gray-200 hover:border-gray-300'">
+                                <div class="text-sm font-black text-gray-800">經典輪播版</div>
+                                <div class="text-[11px] text-gray-500 mt-0.5">含背景大圖、社群圖示、影片與輪播卡片</div>
+                            </button>
+                            <button @click="profile.minimalConfig.templateType = 'minimal'" class="p-3 rounded-2xl border-2 text-left transition" :class="profile.minimalConfig.templateType === 'minimal' ? 'border-pink-500 bg-pink-50/50' : 'border-gray-200 hover:border-gray-300'">
+                                <div class="text-sm font-black text-gray-800">極簡商務版</div>
+                                <div class="text-[11px] text-gray-500 mt-0.5">純文字標籤、聯絡卡、價目表與公司導航</div>
+                            </button>
+                        </div>
+                        <p v-if="profile.minimalConfig.templateType === 'minimal'" class="text-[11px] text-pink-600 font-bold mt-2.5">* 提示：極簡版不支援背景大圖，「主頁按鈕管理」將作為 LINK 連結區。</p>
+                    </div>
                     
                     <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 mb-5 w-full min-w-0">
                         <h3 class="font-black text-base mb-4 text-gray-800 border-b pb-2 flex items-center gap-2"><i class="ph-fill ph-palette text-pink-500"></i> 視覺與顏色設定</h3>
                         
                         <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div class="flex flex-col gap-1 relative">
+                            <div class="flex flex-col gap-1 relative" :class="profile.minimalConfig.templateType === 'minimal' ? 'col-span-2' : ''">
                                 <label class="text-[11px] font-bold text-gray-500">背景底色</label>
                                 <button @click.stop="togglePalette('profileBg')" class="h-10 px-3 rounded-lg border bg-gray-50 flex items-center justify-between hover:bg-gray-100 transition">
                                     <span class="w-5 h-5 rounded-full border border-gray-300 shadow-sm" :style="{backgroundColor: profile.bgColor}"></span>
@@ -329,7 +420,7 @@
                                     </div>
                                 </transition>
                             </div>
-                            <div class="flex flex-col gap-1">
+                            <div v-if="profile.minimalConfig.templateType !== 'minimal'" class="flex flex-col gap-1">
                                 <label class="text-[11px] font-bold text-gray-500">背景圖片 (4:5 裁切)</label>
                                 <button @click.stop="openMediaLibrary('bgImage')" class="h-10 px-3 rounded-lg border bg-gray-50 flex items-center justify-center gap-2 hover:bg-gray-100 transition text-xs font-bold text-gray-600 truncate">
                                     <i v-if="profile.bgImageUrl" class="ph-fill ph-image text-green-500"></i><i v-else class="ph-bold ph-upload-simple"></i> {{ profile.bgImageUrl ? '已設定圖片' : '上傳背景圖' }}
@@ -340,7 +431,7 @@
 
                         <div class="grid grid-cols-2 gap-4">
                             <div class="flex flex-col gap-1 relative">
-                                <label class="text-[11px] font-bold text-gray-500">全域文字顏色 (名/自介)</label>
+                                <label class="text-[11px] font-bold text-gray-500">{{ profile.minimalConfig.templateType === 'minimal' ? '全域文字色 (底色上標題/內文)' : '全域文字顏色 (名/自介)' }}</label>
                                 <button @click.stop="togglePalette('textColor')" class="h-10 px-3 rounded-lg border bg-gray-50 flex items-center justify-between hover:bg-gray-100 transition">
                                     <span class="w-5 h-5 rounded-full border border-gray-300 shadow-sm" :style="{backgroundColor: profile.textColor}"></span><i class="ph-bold ph-caret-down text-gray-400 text-xs"></i>
                                 </button>
@@ -352,7 +443,7 @@
                                 </transition>
                             </div>
                             <div class="flex flex-col gap-1 relative">
-                                <label class="text-[11px] font-bold text-gray-500">社群 Icon 顏色</label>
+                                <label class="text-[11px] font-bold text-gray-500">{{ profile.minimalConfig.templateType === 'minimal' ? '卡片主色 / 按鈕色 (白卡內專用)' : '社群 Icon 顏色' }}</label>
                                 <button @click.stop="togglePalette('socialIconColor')" class="h-10 px-3 rounded-lg border bg-gray-50 flex items-center justify-between hover:bg-gray-100 transition">
                                     <span class="w-5 h-5 rounded-full border border-gray-300 shadow-sm" :style="{backgroundColor: profile.socialIconColor}"></span><i class="ph-bold ph-caret-down text-gray-400 text-xs"></i>
                                 </button>
@@ -396,11 +487,66 @@
                                 <input v-model="profile.name" class="w-full min-w-0 text-sm font-bold p-2.5 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-pink-400 bg-gray-50" placeholder="輸入名稱">
                             </div>
                         </div>
-                        <label class="text-[11px] font-bold text-gray-500 mb-1 block">自我介紹 (自動換行)</label>
-                        <textarea id="bio-textarea-edit" v-model="profile.bio" @input="autoResize('bio-textarea-edit')" class="w-full max-w-full min-w-0 text-sm p-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-pink-400 bg-gray-50 resize-none overflow-hidden" rows="2" placeholder="寫一段簡短的介紹..."></textarea>
+                        
+                        <div v-if="profile.minimalConfig.templateType !== 'minimal'">
+                            <label class="text-[11px] font-bold text-gray-500 mb-1 block">自我介紹 (自動換行)</label>
+                            <textarea id="bio-textarea-edit" v-model="profile.bio" @input="autoResize('bio-textarea-edit')" class="w-full max-w-full min-w-0 text-sm p-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-pink-400 bg-gray-50 resize-none overflow-hidden" rows="2" placeholder="寫一段簡短的介紹..."></textarea>
+                        </div>
+
+                        
+                        <div v-else class="space-y-3">
+                            <div>
+                                <label class="text-[11px] font-bold text-gray-500 mb-1 block">副標題 / 職稱 (例：露比設計 ｜ 設計總監)</label>
+                                <input v-model="profile.minimalConfig.subtitle" class="w-full text-sm p-2.5 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-pink-400 bg-gray-50" placeholder="輸入品牌與職稱">
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-bold text-gray-500 mb-1 block">服務標籤填寫區 (請用逗號或換行分隔)</label>
+                                <textarea v-model="profile.minimalConfig.serviceTags" class="w-full text-sm p-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-pink-400 bg-gray-50" rows="2" placeholder="品牌顧問訂閱, 電子名片, LOGO / VI, 網站 / 導購頁"></textarea>
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-bold text-gray-500 mb-1 block">關於我們區</label>
+                                <textarea v-model="profile.minimalConfig.aboutUs" class="w-full text-sm p-3 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-pink-400 bg-gray-50" rows="3" placeholder="讓你的價值 被記住、被信任、被選擇..."></textarea>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 mb-5 w-full min-w-0">
+                    
+                    <div v-if="profile.minimalConfig.templateType === 'minimal'" class="space-y-5 mb-5">
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 w-full min-w-0 space-y-3">
+                            <h3 class="font-black text-base text-gray-800 border-b pb-2 flex items-center gap-2"><i class="ph-fill ph-address-book text-green-500"></i> 聯絡卡片與手機聯絡人設定</h3>
+                            <input v-model="profile.minimalConfig.contactPhone" class="w-full text-xs p-2.5 rounded-lg border bg-gray-50 outline-none focus:ring-1 focus:ring-pink-400" placeholder="手機號碼 (例：0989-055-344)">
+                            <input v-model="profile.minimalConfig.contactEmail" class="w-full text-xs p-2.5 rounded-lg border bg-gray-50 outline-none focus:ring-1 focus:ring-pink-400" placeholder="聯絡 Email">
+                            <input v-model="profile.minimalConfig.contactLine" class="w-full text-xs p-2.5 rounded-lg border bg-gray-50 outline-none focus:ring-1 focus:ring-pink-400" placeholder="私人 LINE ID / 官方 @ID / lin.ee 連結">
+                        </div>
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 w-full min-w-0 space-y-3">
+                            <div class="flex justify-between items-center border-b pb-2">
+                                <h3 class="font-black text-base text-gray-800 flex items-center gap-2"><i class="ph-fill ph-tag text-orange-500"></i> 可以找我的事 (服務項目與報價)</h3>
+                                <button @click="addMinimalService" type="button" class="text-pink-600 font-bold text-xs bg-pink-50 px-3 py-1.5 rounded-lg hover:bg-pink-100 transition shrink-0"><i class="ph ph-plus"></i> 新增項目</button>
+                            </div>
+                            <div v-if="minimalEditableServices.length === 0" class="text-center py-4 text-xs text-gray-400">尚未新增服務項目，點擊右上方「新增項目」開始設定</div>
+                            <div class="space-y-2.5">
+                                <div v-for="(item, idx) in minimalEditableServices" :key="idx" class="p-3 bg-gray-50 border border-gray-200 rounded-2xl space-y-2">
+                                    <div class="flex gap-2 items-center">
+                                        <input :value="item.name" @input="updateMinimalService(idx, 'name', $event.target.value)" class="flex-1 min-w-0 text-xs font-bold p-2.5 rounded-lg border bg-white outline-none focus:ring-1 focus:ring-pink-400" placeholder="項目名稱（例：AI智能分身工作坊）">
+                                        <input :value="item.price" @input="updateMinimalService(idx, 'price', $event.target.value)" class="w-28 shrink-0 text-xs font-bold p-2.5 rounded-lg border bg-white outline-none focus:ring-1 focus:ring-pink-400" placeholder="價格（$9000/堂）">
+                                        <button @click="removeMinimalService(idx)" type="button" class="p-2 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition shrink-0" title="刪除"><i class="ph ph-trash text-base"></i></button>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <i class="ph ph-link text-gray-400 text-sm shrink-0 ml-1"></i>
+                                        <input :value="item.url" @input="updateMinimalService(idx, 'url', $event.target.value)" class="flex-1 min-w-0 text-xs p-2 rounded-lg border bg-white outline-none focus:ring-1 focus:ring-pink-400" placeholder="超連結網址（選填，例：https://...）">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 w-full min-w-0 space-y-3">
+                            <h3 class="font-black text-base text-gray-800 border-b pb-2 flex items-center gap-2"><i class="ph-fill ph-buildings text-blue-500"></i> 公司資訊設定</h3>
+                            <input v-model="profile.minimalConfig.companyName" class="w-full text-xs p-2.5 rounded-lg border bg-gray-50 outline-none focus:ring-1 focus:ring-pink-400" placeholder="公司名稱">
+                            <input v-model="profile.minimalConfig.companyAddress" class="w-full text-xs p-2.5 rounded-lg border bg-gray-50 outline-none focus:ring-1 focus:ring-pink-400" placeholder="公司地址 (自動產生 Google Maps 導航)">
+                            <input v-model="profile.minimalConfig.companyPhone" class="w-full text-xs p-2.5 rounded-lg border bg-gray-50 outline-none focus:ring-1 focus:ring-pink-400" placeholder="公司電話">
+                        </div>
+                    </div>
+
+                    <div v-if="profile.minimalConfig.templateType !== 'minimal'" class="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 mb-5 w-full min-w-0">
                         <h3 class="font-black text-base mb-4 text-gray-800 border-b pb-2 flex items-center gap-2"><i class="ph-fill ph-share-network text-purple-500"></i> 社群與影音連結</h3>
                         <div class="space-y-3">
                             <div class="flex items-center gap-2">
@@ -776,7 +922,7 @@
   </div>
 
   <script>
-    const { createApp, ref, onMounted, nextTick } = Vue;
+    const { createApp, ref, computed, onMounted, nextTick } = Vue;
     
     const GAS_API_URL = "https://script.google.com/macros/s/AKfycbxRJ-dk2-dm9iwvugV2V9aZ_HaBFfEI9ufGUtYKsSrOwkSIwEMUjzqqkE7WwfZTgxoW/exec";
 
@@ -984,8 +1130,98 @@
             avatarUrl: '', name: '', bio: '', bgColor: '#dddddd', bgImageUrl: '', textColor: '#1a1a1a', 
             socialIconColor: '#000000', fbUrl: '', igUrl: '', lineUrl: '', tiktokUrl: '', ytUrl: '', 
             threadsUrl: '', whatsappUrl: '', linkedinUrl: '', podcastUrl: '', ytChannelUrl: '',
-            lineToken: '', customUrl: '', titleFont: '預設字體', bioFont: '預設字體'
+            lineToken: '', customUrl: '', titleFont: '預設字體', bioFont: '預設字體',
+            minimalConfig: {
+                templateType: 'classic', subtitle: '', serviceTags: '', contactPhone: '', contactEmail: '', contactLine: '',
+                aboutUs: '', servicesList: '', companyName: '', companyAddress: '', companyPhone: ''
+            }
         });
+        const minimalTagList = computed(() => String(profile.value.minimalConfig?.serviceTags || '').split(/[,，\n]+/).map(t => t.trim()).filter(Boolean));
+        const parseMinimalServiceLine = (line) => {
+            const parts = line.split(/[|｜]/);
+            return { name: (parts[0] || '').trim(), price: (parts[1] || '').trim(), url: (parts[2] || '').trim() };
+        };
+
+        const minimalEditableServices = computed(() => {
+            const raw = String(profile.value.minimalConfig?.servicesList || '');
+            if (!raw.trim()) return [];
+            return raw.split('\n').filter(line => line.trim() !== '').map(parseMinimalServiceLine);
+        });
+
+        const minimalServiceRows = computed(() => minimalEditableServices.value.filter(item => item.name !== ''));
+
+        const syncMinimalServices = (list) => {
+            if (!profile.value.minimalConfig) profile.value.minimalConfig = { templateType: 'minimal' };
+            profile.value.minimalConfig.servicesList = list.map(i => `${i.name} | ${i.price} | ${i.url}`).join('\n');
+        };
+
+        const addMinimalService = () => {
+            const list = [...minimalEditableServices.value, { name: '', price: '', url: '' }];
+            syncMinimalServices(list);
+        };
+
+        const removeMinimalService = (idx) => {
+            const list = [...minimalEditableServices.value];
+            list.splice(idx, 1);
+            syncMinimalServices(list);
+        };
+
+        const updateMinimalService = (idx, field, val) => {
+            const list = minimalEditableServices.value.map(item => ({ ...item }));
+            if (list[idx]) {
+                list[idx][field] = val.replace(/[|｜\n]/g, '');
+                syncMinimalServices(list);
+            }
+        };
+
+        const buildServiceUrl = (u) => {
+            const v = String(u || '').trim();
+            if (!v) return '#';
+            return (v.startsWith('http://') || v.startsWith('https://') || v.startsWith('tel:') || v.startsWith('mailto:')) ? v : 'https://' + v;
+        };
+
+        const downloadPreviewVCard = () => {
+            const cfg = profile.value.minimalConfig || {};
+            const vcard = [
+                "BEGIN:VCARD", "VERSION:3.0",
+                "FN:" + (profile.value.name || ''),
+                cfg.companyName ? "ORG:" + cfg.companyName : "",
+                cfg.subtitle ? "TITLE:" + cfg.subtitle : "",
+                cfg.contactPhone ? "TEL;TYPE=CELL:" + cfg.contactPhone : "",
+                cfg.contactEmail ? "EMAIL:" + cfg.contactEmail : "",
+                "END:VCARD"
+            ].filter(Boolean).join("\n");
+            const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8;" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = (profile.value.name || 'card') + ".vcf";
+            a.click();
+        };
+
+        const shareMinimalPreview = () => {
+            if (!currentUser.value) return;
+            const name = profile.value.name || currentUser.value.name || "我";
+            const customPath = profile.value.customUrl || currentUser.value.memberId;
+            const cardUrl = "https://tuituicard.github.io/share/" + customPath + "/";
+            const introText = "哈囉！這是「" + name + "」的雲端名片，請點擊連結查看：";
+            const fullText = introText + "\n" + cardUrl;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(fullText).catch(() => {});
+            }
+            if (navigator.share) {
+                navigator.share({ title: name + " - 專屬雲端名片", text: introText, url: cardUrl }).catch(() => {});
+            } else {
+                shareProfilePage();
+            }
+        };
+
+        const buildLineAddUrl = (val) => {
+            const v = String(val || "").trim();
+            if (!v) return "#";
+            if (v.startsWith("http")) return v;
+            if (v.startsWith("@")) return "https://line.me/R/ti/p/" + encodeURIComponent(v);
+            return "https://line.me/ti/p/~" + encodeURIComponent(v);
+        };
         const buttons = ref([]);
         const slides = ref([]); 
 
@@ -1539,7 +1775,8 @@
           isMediaModalOpen, mediaImages, isLoadingImages, openMediaLibrary, closeMediaLibrary, selectImage,
           handleFileSelect, deleteGalleryImage, isCropModalOpen, isUploading, closeCropper, confirmCropAndUpload,
           isProfileLinkCopied, shareProfilePage, isPublishingWeb, publishToWeb, GAS_API_URL,
-          handleTouchStart, handleTouchEnd, nextImg, prevImg, checkUnfinishedUploads
+          handleTouchStart, handleTouchEnd, nextImg, prevImg, checkUnfinishedUploads,
+          minimalTagList, minimalServiceRows, minimalEditableServices, addMinimalService, removeMinimalService, updateMinimalService, buildServiceUrl, downloadPreviewVCard, shareMinimalPreview, buildLineAddUrl
         };
       }
     }).mount('#app');
