@@ -167,6 +167,7 @@
         <form @submit.prevent="handleRegister" class="space-y-4">
             <input v-model="regForm.name" type="text" required placeholder="姓名 / 品牌名稱" class="w-full p-4 rounded-xl border outline-none">
             <input v-model="regForm.email" type="email" required placeholder="聯絡信箱" class="w-full p-4 rounded-xl border outline-none">
+            <input v-model="regForm.referrer" type="text" placeholder="介紹人（選填）" class="w-full p-4 rounded-xl border outline-none">
             <button type="submit" :disabled="isLoading" class="w-full bg-gray-900 hover:bg-black transition text-white p-4 rounded-xl font-bold flex justify-center items-center gap-2"><i v-if="isLoading" class="ph ph-spinner animate-spin"></i> 確認申請</button>
         </form>
         <p v-if="isRegSuccess" class="mt-4 text-green-600 text-sm font-bold text-center">申請成功！請至 Email 收取密碼。</p>
@@ -938,7 +939,7 @@
         const activePaletteId = ref(null); 
         
         const loginForm = ref({ email: '', password: '' });
-        const regForm = ref({ name: '', email: '' });
+        const regForm = ref({ name: '', email: '', referrer: '' });
         const forgotForm = ref({ email: '' });
         
         const isLoading = ref(false);
@@ -1373,7 +1374,7 @@
                 const res = await apiCall({ action: 'register', ...regForm.value });
                 if(res.status === 'success') { 
                     isRegSuccess.value = true; 
-                    regForm.value = { name: '', email: '' }; 
+                    regForm.value = { name: '', email: '', referrer: '' }; 
                 } else {
                     showToast('註冊失敗', 'error');
                 }
